@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class HashTable
+  attr_reader :keys, :values
+
   def initialize
     @counter = 0
     @keys = []
@@ -32,8 +34,24 @@ class HashTable
     @keys.each_with_index do |stored_key, index|
       index_value = index if stored_key.eql?(key)
     end
+
+    return nil if index_value.eql?(nil)
+
     @values[index_value]
   end
 
-  attr_reader :keys
+  def remove(key)
+    index_key = nil
+    @keys.each_with_index do |stored_key, index|
+      if stored_key.eql?(key)
+        index_key = index
+        break
+      end
+    end
+
+    return nil if index_key.eql?(nil)
+
+    @keys.delete_at(index_key)
+    @values.delete_at(index_key)
+  end
 end
