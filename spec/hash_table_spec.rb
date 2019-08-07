@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/hash_table'
+require_relative 'spec_helper'
 
 RSpec.describe HashTable do
   describe '#put' do
