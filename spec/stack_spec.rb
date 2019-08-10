@@ -11,6 +11,30 @@ RSpec.describe Stack do
     expect(stack.items).to eq [1, 2, 3]
   end
 
+  it 'can pop items' do
+    stack = Stack.new
+    stack.push(1)
+    stack.push(2)
+    expect(stack.items).to eq [1, 2]
+    stack.pop
+    expect(stack.items).to eq [1]
+    stack.push(5)
+    expect(stack.items).to eq [1, 5]
+  end
+
+  describe "#is_empty?" do
+    it 'returns true when stack have zero items' do
+      stack = Stack.new
+      expect(stack.is_empty?).to eq true
+    end
+
+    it 'returns false when stack have any items' do
+      stack = Stack.new
+      stack.push(1)
+      expect(stack.is_empty?).to be false
+    end
+  end
+
   it 'delete last element' do
     stack = Stack.new
     stack.push(1)
