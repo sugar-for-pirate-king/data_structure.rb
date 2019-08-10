@@ -8,7 +8,7 @@ RSpec.describe LinkedList do
       linked = LinkedList.new
       linked.add_at_head(2)
       linked.add_at_head(3)
-      expect(linked.storage).to eq [3, 2]
+      expect(linked.items).to eq [3, 2]
     end
   end
 
@@ -17,7 +17,7 @@ RSpec.describe LinkedList do
       linked = LinkedList.new
       linked.add_at_tail(2)
       linked.add_at_tail(3)
-      expect(linked.storage).to eq [2, 3]
+      expect(linked.items).to eq [2, 3]
     end
   end
 
@@ -25,19 +25,19 @@ RSpec.describe LinkedList do
     it 'add new data from passed index 0' do
       linked = LinkedList.new
       linked.add_at_index(0, 2)
-      expect(linked.storage).to eq [2]
+      expect(linked.items).to eq [2]
     end
 
     it 'add new data from passed index 1' do
       linked = LinkedList.new
       linked.add_at_index(1, 2)
-      expect(linked.storage).to eq [nil, 2]
+      expect(linked.items).to eq [nil, 2]
     end
 
     it 'return nil if add new data from negative index' do
       linked = LinkedList.new
       expect(linked.add_at_index(-1, 2)).to eq nil
-      expect(linked.storage).to eq []
+      expect(linked.items).to eq []
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.describe LinkedList do
       linked.add_at_tail(4)
       linked.add_at_tail(8)
       linked.add_at_tail(10)
-      expect(linked.storage).to eq [4, 8, 10]
+      expect(linked.items).to eq [4, 8, 10]
       expect(linked.get(1)).to eq 8
     end
 
@@ -64,9 +64,9 @@ RSpec.describe LinkedList do
       linked.add_at_tail(4)
       linked.add_at_tail(8)
       linked.add_at_tail(10)
-      expect(linked.storage).to eq [4, 8, 10]
+      expect(linked.items).to eq [4, 8, 10]
       linked.delete_at_index(1)
-      expect(linked.storage).to eq [4, 10]
+      expect(linked.items).to eq [4, 10]
     end
   end
 
